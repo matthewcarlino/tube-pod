@@ -1,0 +1,23 @@
+{
+  "name": "tube-pod",
+  "version": "1.0.0",
+  "description": "Extracts audio from youtube video",
+  "main": "tube-pod.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewcarlino/tube-pod.git"
+  },
+  "author": "Lindsey Urqhart",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/matthewcarlino/tube-pod/issues"
+  },
+  "homepage": "https://github.com/matthewcarlino/tube-pod#readme",
+  "dependencies": {
+    "ytdl-core": "^3.2.2"
+  }
+}
