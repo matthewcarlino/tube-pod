@@ -2,6 +2,7 @@
 
 const ytdl = require('ytdl-core');
 const fs = require('fs');
+const { getBasicInfo } = require('ytdl-core');
 
 const url = 'https://www.youtube.com/watch?v=WZsY5yYGbt8'; //put a url in here.. hardcoded for now is fine.
 
@@ -14,5 +15,15 @@ outStream.on('close', () => {
     console.info('Done');
 });
 
-//const info = await ytdl.getInfo(url);
-//console.info('ytdl info', info);
+
+// async function that gathers metadata for a video 
+async function videoInfo() {
+        const result = await ytdl.getInfo('ZV2VrYuVIPQ'); // this is a videoId
+        console.log(result);
+        // console.info('ytdl info', info);
+}
+
+videoInfo();
+
+// console.info('ytdl info', info);
+
