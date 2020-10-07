@@ -16,14 +16,14 @@ outStream.on('close', () => {
 });
 
 
-// async function that gathers metadata for a video 
+//async function that gathers metadata for a video 
 async function videoInfo() {
-        const result = await ytdl.getInfo('ZV2VrYuVIPQ'); // this is a videoId
-        console.log(result);
-        // console.info('ytdl info', info);
+        const result = await ytdl.getInfo(url); 
+        console.log(result)
 }
 
 videoInfo();
 
 // console.info('ytdl info', info);
+
 
