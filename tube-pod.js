@@ -6,24 +6,32 @@ const { getBasicInfo } = require('ytdl-core');
 
 const url = 'https://www.youtube.com/watch?v=WZsY5yYGbt8'; //put a url in here.. hardcoded for now is fine.
 
-const outStream = fs.createWriteStream('sunday.mp3');
-const inStream = ytdl(url, { quality: 'highest', filter: 'audioonly'});
-
-inStream.pipe(outStream);
-
-outStream.on('close', () => {
-    console.info('Done');
-});
-
-
 //async function that gathers metadata for a video 
-async function videoInfo() {
-        const result = await ytdl.getInfo(url); 
-        console.log(result)
-}
+const getInfo = async (url) => {
+    const response = await ytdl.getBasicInfo(url);
+    const info = response.videoDetails.title;
+    console.log(info);
+};
 
-videoInfo();
+const getStream = async (url) => {
+    return new Promise((resolve, reject) => {
+        const inStream = ytdl(url, {
+            quality: 'highest',
+            filter: 'audioonly',
+        })
+        const outStream = fs.createWriteStream('sunday.mp3')
+        inStream.pipe(outStream);
+    })
+};
 
-// console.info('ytdl info', info);
+
+const main = async (url) => {
+    const info = await getInfo(url);
+    const inStream = await getStream(url);
+};
+
+main(url);
+
+
 
 
